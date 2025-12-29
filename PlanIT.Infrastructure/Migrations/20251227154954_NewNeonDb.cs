@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PlanIT.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialPostgres : Migration
+    public partial class NewNeonDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -36,7 +36,11 @@ namespace PlanIT.Infrastructure.Migrations
                     DurationDays = table.Column<int>(type: "integer", nullable: false),
                     EstimatedBudget = table.Column<decimal>(type: "numeric", nullable: false),
                     TravelStyle = table.Column<string>(type: "text", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ItineraryJson = table.Column<string>(type: "text", nullable: true),
+                    IsGenerated = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {

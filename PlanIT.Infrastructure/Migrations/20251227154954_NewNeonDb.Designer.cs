@@ -12,8 +12,8 @@ using PlanIT.Infrastructure.Data;
 namespace PlanIT.Infrastructure.Migrations
 {
     [DbContext(typeof(PlanITDbContext))]
-    [Migration("20251215211839_InitialPostgres")]
-    partial class InitialPostgres
+    [Migration("20251227154954_NewNeonDb")]
+    partial class NewNeonDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,8 +41,20 @@ namespace PlanIT.Infrastructure.Migrations
                     b.Property<int>("DurationDays")
                         .HasColumnType("integer");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<decimal>("EstimatedBudget")
                         .HasColumnType("numeric");
+
+                    b.Property<bool>("IsGenerated")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("ItineraryJson")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("TravelStyle")
                         .IsRequired()
