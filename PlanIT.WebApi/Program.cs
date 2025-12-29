@@ -173,6 +173,11 @@ app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 
+
+// Habilitar archivos esáticos y manejos de rutas SPA
+app.UseDefaultFiles(); 
+app.UseStaticFiles();
+app.MapFallbackToFile("index.html");
 // ===========================================================================================================================
 // 5. ENDPOINTS (Presentacion)
 // ===========================================================================================================================
